@@ -1,12 +1,13 @@
 <header>
     Skyview Visitor 
     <ul>
-        <li><a href="">Visitor Registration</a>
+        <li *ngIf="isLogged"><a routerLink="/vistor-register">Visitor Registration</a>
 
         </li>
     </ul>
     <ul>
-        <li><button on-click="loginHandler()">Login</button></li>
+        <li><button *ngIf="!isLogged"on-click="loginHandler()">Login</button></li>
+        <li><button *ngIf="isLogged" on-click="logoutHandler()">Logout</button></li>
         <li><button on-click="registerHandler()">Register</button></li>
     </ul>
 </header>

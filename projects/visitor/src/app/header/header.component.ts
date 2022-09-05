@@ -8,9 +8,12 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  isLogged=true;
+
   constructor(private r:Router) { }
 
   ngOnInit(): void {
+    this.isLogged=localStorage.getItem('status')==='loggedin';
   }
 
   loginHandler()
@@ -22,4 +25,14 @@ export class HeaderComponent implements OnInit {
   {
     this.r.navigate(['register'])
   }
+
+  logoutHandler()
+  {
+    localStorage.clear();
+  }
+
+  
+
+
+
 }
